@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Отметь 72 дела, которые делаешь руками, — и узнай, сколько часов в месяц вернёт нейросеть. Тест марафона «Успеть всё».">
+<meta property="og:title" content="Сколько времени вернёт нейросеть">
+<meta property="og:description" content="Отметь то, что делаешь руками, и увидишь свой результат в часах.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏳</text></svg>">
+<title>Тест: сколько времени можно вернуть</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>:root{
+  --ground:#FBF6F1; --surface:#FFFFFF; --surface-2:#F6EDE6;
+  --ink:#3E2E2A; --muted:#8B736B;
+  --rose:#C9707F; --rose-deep:#A8505F; --rose-soft:#F8E6E6;
+  --line:#EADCD2;
+  --shadow:0 1px 2px rgba(62,46,42,.05), 0 14px 34px -20px rgba(62,46,42,.4);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --ground:#221A19; --surface:#2C2321; --surface-2:#352A28;
+  --ink:#F3E7E1; --muted:#B49E97;
+  --rose:#E79DA7; --rose-deep:#F3BCC3; --rose-soft:#3B2A2C;
+  --line:#3E312E;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 34px -20px rgba(0,0,0,.85);
+}}
+:root[data-theme="dark"]{
+  --ground:#221A19; --surface:#2C2321; --surface-2:#352A28;
+  --ink:#F3E7E1; --muted:#B49E97;
+  --rose:#E79DA7; --rose-deep:#F3BCC3; --rose-soft:#3B2A2C;
+  --line:#3E312E;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 34px -20px rgba(0,0,0,.85);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:800}
+h1{font-size:clamp(27px,5.2vw,40px);line-height:1.12;letter-spacing:-.033em}
+h2{font-size:clamp(22px,4vw,29px);line-height:1.18;letter-spacing:-.028em}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:15px}
+.muted{color:var(--muted)}
+.lede{font-size:19px;line-height:1.5}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+
+.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--ground) 92%,transparent);
+  backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:820px;margin:0 auto;padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mark{font-weight:800;font-size:17px;letter-spacing:-.03em;white-space:nowrap}
+.mark em{color:var(--rose);font-style:normal}
+.live{background:var(--rose-soft);border-radius:999px;padding:5px 16px;text-align:right;line-height:1.15}
+.live span{display:block;font-size:19px;font-weight:800;color:var(--rose-deep);letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.live small{font-size:10.5px;color:var(--rose-deep);opacity:.85;font-weight:600}
+
+.hero{padding:38px 0 30px;text-align:center}
+.hero .lede{max-width:610px;margin:0 auto}
+.stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;min-width:150px}
+.stat b{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1;
+  color:var(--rose-deep);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted);display:block;margin-top:6px;line-height:1.35}
+
+.howto{background:var(--surface-2);border-radius:22px;padding:26px 24px;margin:6px 0 28px}
+.howto ol{margin:12px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:9px}
+
+.nav{position:sticky;top:51px;z-index:30;background:color-mix(in srgb,var(--ground) 94%,transparent);
+  backdrop-filter:blur(8px);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:26px}
+.nav-in{display:flex;gap:7px;overflow-x:auto;padding:0 20px;max-width:820px;margin:0 auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;font-size:13.5px;font-weight:600;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;white-space:nowrap}
+.nav a:hover{border-color:var(--rose);color:var(--rose-deep)}
+
+.sphere{margin-bottom:38px;scroll-margin-top:108px}
+.sphere-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding-bottom:12px;margin-bottom:14px;border-bottom:2px solid var(--line)}
+.sphere-head .num{font-size:12px;font-weight:800;color:var(--rose);letter-spacing:.1em;display:block;margin-bottom:3px}
+.sphere-count{font-size:13.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.cards{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:border-color .15s}
+.card.on{border-color:var(--rose);background:color-mix(in srgb,var(--rose-soft) 50%, var(--surface))}
+.card-top{display:flex;gap:13px;padding:15px 17px;align-items:flex-start}
+.tick{flex:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--line);background:var(--ground);
+  cursor:pointer;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:.15s;padding:0}
+.tick:hover{border-color:var(--rose)}
+.tick::after{content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;
+  transform:rotate(-45deg) translate(1px,-2px);opacity:0}
+.card.on .tick{background:var(--rose);border-color:var(--rose)}
+.card.on .tick::after{opacity:1}
+.card-body{flex:1;min-width:0;cursor:pointer}
+.card h3{font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.3}
+.card .sit{font-size:15.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+.card .how{font-size:14.5px;color:var(--ink);margin-top:7px;font-weight:600}
+.times{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:9px;font-size:12.5px;font-weight:700}
+.t-was{background:var(--surface-2);color:var(--muted);padding:4px 10px;border-radius:999px;text-decoration:line-through}
+.t-arr{color:var(--rose)}
+.t-ai{background:var(--rose-soft);color:var(--rose-deep);padding:4px 10px;border-radius:999px}
+.t-freq{color:var(--muted);font-weight:600;margin-left:2px}
+.chev{flex:none;color:var(--muted);font-size:13px;margin-top:5px;transition:transform .2s;user-select:none;cursor:pointer}
+.card.open .chev{transform:rotate(180deg)}
+.prompt{display:none;padding:0 17px 16px 54px}
+.card.open .prompt{display:block}
+.prompt-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:7px}
+.prompt-text{background:var(--surface-2);border-radius:14px;padding:14px 16px;font-size:15.5px;line-height:1.5;
+  border-left:3px solid var(--rose)}
+.copy{margin-top:9px;font-size:13.5px;font-weight:700;color:var(--rose-deep);background:none;
+  border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer}
+.copy:hover{border-color:var(--rose)}
+@media(max-width:560px){.prompt{padding-left:17px}}
+
+.limits{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px 24px;margin:34px 0}
+.limits h3{font-size:17px;margin-top:18px}
+.limits p{margin-top:5px;color:var(--muted);font-size:16px}
+.warn{background:var(--rose-soft);border-radius:14px;padding:14px 16px;margin-top:18px;font-size:15.5px;color:var(--ink)}
+
+.final{background:var(--surface);border:2px solid var(--rose);border-radius:24px;padding:30px 24px;
+  box-shadow:var(--shadow);text-align:center}
+.scale{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+.sc{background:var(--surface-2);border-radius:18px;padding:16px 22px;min-width:150px}
+.sc b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.sc span{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.35}
+.sc-was b{color:var(--muted)}
+.sc-ai b{color:var(--rose-deep)}
+.sc-arrow{color:var(--rose);font-size:22px;font-weight:800}
+.gain{margin-top:24px;display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap}
+.gain-num{font-size:66px;font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--rose-deep);
+  font-variant-numeric:tabular-nums}
+.gain-unit{font-size:17px;font-weight:700;max-width:190px;text-align:left;line-height:1.25}
+.gain-cap{margin-top:6px;font-size:16px}
+.picked{text-align:left;background:var(--surface-2);border-radius:16px;padding:16px 18px;margin-top:20px;
+  max-height:260px;overflow-y:auto;font-size:15.5px}
+.picked ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px}
+.first{background:var(--rose-soft);border-radius:16px;padding:18px;margin-top:14px;text-align:left}
+.tools{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:18px}
+.tools button{font-size:14px;font-weight:700;background:none;border:1px solid var(--line);
+  border-radius:999px;padding:9px 17px;cursor:pointer;color:var(--ink)}
+.tools button:hover{border-color:var(--rose);color:var(--rose-deep)}
+
+.cta{background:var(--rose-soft);border-radius:24px;padding:32px 24px;text-align:center;margin-top:16px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;
+  border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:1px solid transparent;
+  cursor:pointer;transition:.15s}
+.btn-primary{background:var(--rose);color:#fff;box-shadow:var(--shadow)}
+:root[data-theme="dark"] .btn-primary{color:#2A1D1F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-primary{color:#2A1D1F}}
+.btn-primary:hover{background:var(--rose-deep)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--rose);color:var(--rose-deep)}
+@media(max-width:560px){.btns{flex-direction:column;align-items:stretch}.btns .btn{width:100%}
+  .gain-num{font-size:52px}.gain-unit{max-width:none;text-align:center}}
+
+footer{padding:34px 0 60px;font-size:13.5px;color:var(--muted);text-align:center;line-height:1.6}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(80px);
+  background:var(--ink);color:var(--ground);padding:11px 20px;border-radius:999px;font-size:14.5px;
+  font-weight:600;opacity:0;transition:.25s;z-index:60;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <div class="mark">Успеть <em>всё</em> · тест</div>
+  <div class="live"><span id="liveHours">0 ч</span><small>освободится в месяц</small></div>
+</div></div>
+
+<div class="wrap">
+  <header class="hero stack">
+    <p class="eyebrow">Тест · марафон «Успеть всё»</p>
+    <h1>Сколько времени ты тратишь на то, что уже можно не делать</h1>
+    <p class="lede muted">72 дела, которые ещё вчера делали руками. Отметь те, что делаешь ты — и внизу увидишь, сколько часов в месяц они у тебя забирают и сколько останется, если передать их нейросети.</p>
+    <div class="stats">
+      <div class="stat"><b>72</b><span>дела в тесте</span></div>
+      <div class="stat"><b>2&nbsp;мин</b><span>вместо 15–20 на поиск<br>в интернете и роликах</span></div>
+      <div class="stat"><b>0 ₽</b><span>большая часть работает<br>на бесплатном тарифе</span></div>
+    </div>
+  </header>
+
+  <div class="howto">
+    <p class="eyebrow">Как проходить</p>
+    <ol>
+      <li><strong>Отмечай то, что делаешь руками сейчас.</strong> Не то, что звучит красиво, а то, что правда забирает твои вечера.</li>
+      <li><strong>Открой карточку — внутри готовый запрос.</strong> Скопируй, вставь в чат с нейросетью, подставь свои детали. Работает уже сегодня.</li>
+      <li><strong>Дойди до конца.</strong> Там будет твой результат в часах и одно дело, с которого начать.</li>
+    </ol>
+    <p class="muted" style="margin-top:12px;font-size:15px">Отметки сохраняются в этом браузере — можно закрыть и вернуться.</p>
+  </div>
+</div>
+
+<div class="nav"><div class="nav-in"><a href="#s1">Дом и быт</a><a href="#s2">Семья и дети</a><a href="#s3">Здоровье и забота о себе</a><a href="#s4">Документы и права</a><a href="#s5">Деньги и покупки</a><a href="#s6">Работа по найму</a><a href="#s7">Учёба и информация</a><a href="#s8">Своё дело и клиенты</a><a href="#s9">Контент и видимость</a></div></div>
+
+<div class="wrap">
+  <section class="sphere" id="s1">
+  <div class="sphere-head">
+    <h2><span class="num">01</span>Дом и быт</h2>
+    <span class="sphere-count" data-count="s1">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c1" data-sphere="s1" data-w="20" data-a="2" data-f="10">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Ужин из того, что есть</h3>
+      <p class="sit">Стоишь перед холодильником, идей ноль, все голодные.</p>
+      <p class="how">Фото полок → вопрос → три варианта ужина</p>
+      <div class="times">
+        <span class="t-was">руками ~20 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">почти каждый день</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото моего холодильника. Предложи три варианта ужина на семью из четырёх человек, каждый готовится не дольше 30 минут. Без похода в магазин.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c2" data-sphere="s1" data-w="25" data-a="3" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Список покупок по залу магазина</h3>
+      <p class="sit">Список написан как попало, и ты трижды возвращаешься в один отдел.</p>
+      <p class="how">Меню → список, разложенный по отделам</p>
+      <div class="times">
+        <span class="t-was">руками ~25 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот меню на неделю. Собери список покупок и сгруппируй его по отделам магазина: овощи, молочка, мясо, бакалея, бытовое.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c3" data-sphere="s1" data-w="20" data-a="2" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Кнопки, которые давно стёрлись</h3>
+      <p class="sit">Машинка работает, но что означает половина значков — загадка.</p>
+      <p class="how">Фото панели → расшифровка каждого значка</p>
+      <div class="times">
+        <span class="t-was">руками ~20 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото панели стиральной машины. Расшифруй каждый значок и подскажи, какой режим для чего подходит.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c4" data-sphere="s1" data-w="40" data-a="4" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Что сломалось до прихода мастера</h3>
+      <p class="sit">Техника шумит, а ты не знаешь, дорого это или ерунда.</p>
+      <p class="how">Описала симптом → версии причин и вопросы мастеру</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Посудомойка гудит при сливе и оставляет воду на дне. Назови вероятные причины, что я могу проверить сама и какие вопросы задать мастеру.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c5" data-sphere="s1" data-w="20" data-a="2" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Спасти вещь, а не добить</h3>
+      <p class="sit">Посадила пятно, полезла в интернет, сделала хуже.</p>
+      <p class="how">Что за ткань и чем посадила → порядок действий</p>
+      <div class="times">
+        <span class="t-was">руками ~20 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">На белой хлопковой рубашке пятно от красного вина, прошло два часа. Дай порядок действий и отдельно перечисли, чего делать нельзя.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c6" data-sphere="s1" data-w="60" data-a="5" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Сколько купить на ремонт</h3>
+      <p class="sit">Считаешь на бумажке, а потом докупаешь то, чего уже нет.</p>
+      <p class="how">Размеры комнаты → расчёт материалов и смета</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Комната 3,2 на 4,1 метра, высота 2,7. Кладу ламинат и крашу стены. Посчитай материалы с запасом на подрезку и прикинь черновую смету.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c7" data-sphere="s1" data-w="25" data-a="2" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Растение, которое ты уже похоронила</h3>
+      <p class="sit">Поливаешь и надеешься, что само разберётся.</p>
+      <p class="how">Фото листьев → диагноз и план на две недели</p>
+      <div class="times">
+        <span class="t-was">руками ~25 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото листьев моего фикуса. Что с ним происходит и что делать в ближайшие две недели, по дням.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c8" data-sphere="s1" data-w="120" data-a="10" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Папка «Загрузки» на четыре тысячи файлов</h3>
+      <p class="sit">Разберу когда-нибудь — а «когда-нибудь» не наступает.</p>
+      <p class="how">Описала бардак → система папок и план на три подхода</p>
+      <div class="times">
+        <span class="t-was">руками ~120 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Помоги придумать систему папок для документов, скриншотов и загрузок. Дай пошаговый план разбора на три подхода по 20 минут.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s2">
+  <div class="sphere-head">
+    <h2><span class="num">02</span>Семья и дети</h2>
+    <span class="sphere-count" data-count="s2">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c9" data-sphere="s2" data-w="20" data-a="2" data-f="12">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Школьный чат в три строки</h3>
+      <p class="sit">Двести сообщений за вечер, и всё равно пропустила про деньги.</p>
+      <p class="how">Скопировала переписку → что сдать, когда и кому</p>
+      <div class="times">
+        <span class="t-was">руками ~20 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">почти каждый день</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот переписка из школьного чата. Выпиши только то, что требует от меня действия: что сдать, когда, кому и сколько. Остальное убери.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c10" data-sphere="s2" data-w="30" data-a="4" data-f="8">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Домашка, которую ты сама не помнишь</h3>
+      <p class="sit">Ребёнок просит объяснить, а ты дроби видела в школе.</p>
+      <p class="how">Фото задачи → объяснение по шагам и примеры</p>
+      <div class="times">
+        <span class="t-was">руками ~30 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">почти каждый день</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото задачи по математике за 5 класс. Объясни решение по шагам как терпеливый репетитор и дай пять похожих примеров потренироваться.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c11" data-sphere="s2" data-w="20" data-a="2" data-f="6">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Сказка, где герой — твой ребёнок</h3>
+      <p class="sit">Одна и та же книжка по десятому кругу, и ты засыпаешь первая.</p>
+      <p class="how">Имя ребёнка и его страх → своя сказка на 5 минут</p>
+      <div class="times">
+        <span class="t-was">руками ~20 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Придумай сказку на 5 минут чтения. Главный герой — мальчик Стёпа, у него собака Тиша, он боится темноты. Пусть в конце страх окажется не таким страшным.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c12" data-sphere="s2" data-w="25" data-a="3" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Сообщение учителю, которое страшно писать</h3>
+      <p class="sit">Полчаса переписываешь и всё равно отправляешь не то.</p>
+      <p class="how">Сказала суть → вежливый текст, который не испортит отношения</p>
+      <div class="times">
+        <span class="t-was">руками ~25 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Мне нужно написать классному руководителю, что ребёнок пропустит уроки в пятницу по семейным обстоятельствам. Напиши вежливо и коротко.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c13" data-sphere="s2" data-w="45" data-a="5" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Правила про телефон без скандала</h3>
+      <p class="sit">Каждый вечер одно и то же «ещё пять минут».</p>
+      <p class="how">Возраст и ситуация → домашний договор</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Помоги составить домашние правила про телефон для ребёнка 9 лет: сколько времени, когда можно, что происходит при нарушении. Как договор, а не наказание.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c14" data-sphere="s2" data-w="40" data-a="4" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Школьные бумаги на человеческом</h3>
+      <p class="sit">Читаешь программу обучения и не понимаешь ни строчки.</p>
+      <p class="how">Фото документа → что это значит на практике</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот текст образовательной программы. Объясни простыми словами, что каждый пункт значит на практике для моего ребёнка, и что уточнить у школы.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c15" data-sphere="s2" data-w="180" data-a="20" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>День рождения за один разговор</h3>
+      <p class="sit">Две недели переписок, поиск аниматора и паника накануне.</p>
+      <p class="how">Возраст и число детей → сценарий, стол, закупки, тайминг</p>
+      <div class="times">
+        <span class="t-was">руками ~180 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~20 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Помоги подготовить день рождения дома: 7 детей по 6 лет, три часа. Нужен сценарий квеста, план стола, список закупок и тайминг.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c16" data-sphere="s2" data-w="240" data-a="25" data-f="0.2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Отпуск, который выдержат дети</h3>
+      <p class="sit">Неделя в форумах и всё равно маршрут, где ребёнок спит в музее.</p>
+      <p class="how">Города и возраст детей → маршрут с режимом и запасным планом</p>
+      <div class="times">
+        <span class="t-was">руками ~240 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~25 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Составь маршрут на 5 дней с детьми 4 и 8 лет. Учти дневной сон, перекусы каждые два часа и запасной план на дождь.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s3">
+  <div class="sphere-head">
+    <h2><span class="num">03</span>Здоровье и забота о себе</h2>
+    <span class="sphere-count" data-count="s3">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c17" data-sphere="s3" data-w="45" data-a="4" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Анализы, из-за которых ты себя накрутила</h3>
+      <p class="sit">Погуглила каждый показатель и нашла у себя всё сразу.</p>
+      <p class="how">Фото бланка → объяснение и вопросы врачу</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот результаты анализа крови, данные обезличены. Объясни простыми словами, что означают показатели вне нормы, и дай пять вопросов врачу.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c18" data-sphere="s3" data-w="30" data-a="3" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Заключение на латыни</h3>
+      <p class="sit">Неделя тревоги над одной строчкой, пока ждёшь приёма.</p>
+      <p class="how">Фото заключения → перевод на человеческий</p>
+      <div class="times">
+        <span class="t-was">руками ~30 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Переведи это медицинское заключение на человеческий язык. Отдельно выпиши, что здесь требует уточнения у врача.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c19" data-sphere="s3" data-w="40" data-a="4" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Дневник симптомов, который видно сразу</h3>
+      <p class="sit">На приёме не можешь вспомнить, когда и после чего болело.</p>
+      <p class="how">Заметки за три недели → таблица для врача</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот мои заметки за три недели. Собери таблицу: дата, что беспокоило, после чего, насколько сильно по десятибалльной шкале.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c20" data-sphere="s3" data-w="40" data-a="4" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Два врача сказали разное</h3>
+      <p class="sit">Выбираешь, кому верить, по интонации и цене приёма.</p>
+      <p class="how">Два заключения → в чём именно расходятся</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот два заключения от разных врачей. Покажи, в чём именно они расходятся и какие вопросы задать каждому.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c21" data-sphere="s3" data-w="60" data-a="6" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Меню, когда одному нельзя, а другому надо</h3>
+      <p class="sit">Готовить в две кастрюли или махнуть рукой.</p>
+      <p class="how">Ограничения семьи → меню, где блюда пересекаются</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~6 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Составь меню на неделю: одному нельзя молочное, другой не ест рыбу, ребёнку нужно больше белка. Блюда должны пересекаться, чтобы не готовить отдельно.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c22" data-sphere="s3" data-w="50" data-a="5" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Тренировки, которые не добьют спину</h3>
+      <p class="sit">Скачала программу из интернета и через неделю слегла.</p>
+      <p class="how">Ограничения → план и список того, чего нельзя</p>
+      <div class="times">
+        <span class="t-was">руками ~50 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Составь план тренировок дома на месяц: 25 минут, три раза в неделю. У меня слабая поясница. Отдельно перечисли, чего мне избегать.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c23" data-sphere="s3" data-w="45" data-a="5" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Родители, за которыми нужно присматривать</h3>
+      <p class="sit">Держишь в голове, кому какая таблетка и когда к врачу.</p>
+      <p class="how">Список препаратов → расписание и напоминания</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Помоги собрать расписание: три препарата в разное время плюс визиты к двум врачам раз в квартал. Нужна таблица и когда покупать заново.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c24" data-sphere="s3" data-w="10" data-a="1" data-f="3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Состав, набранный шестым кеглем</h3>
+      <p class="sit">Читаешь этикетку в магазине, подсвечивая телефоном.</p>
+      <p class="how">Фото состава → что здесь по сути и чем заменить</p>
+      <div class="times">
+        <span class="t-was">руками ~10 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~1 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото состава продукта. Что здесь есть по сути, на что посмотреть внимательнее и чем это можно заменить.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s4">
+  <div class="sphere-head">
+    <h2><span class="num">04</span>Документы и права</h2>
+    <span class="sphere-count" data-count="s4">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c25" data-sphere="s4" data-w="60" data-a="6" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Жалоба, которую откладывала полгода</h3>
+      <p class="sit">Надо бы написать в управляющую — и так третий месяц.</p>
+      <p class="how">Рассказала своими словами → готовый документ</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~6 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">В подъезде третий месяц не работает освещение, заявки по телефону не помогают. Напиши обращение в управляющую компанию со ссылками на нормы и сроками.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c26" data-sphere="s4" data-w="70" data-a="7" data-f="0.4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Претензия, после которой возвращают деньги</h3>
+      <p class="sit">Махнула рукой, потому что спорить дороже.</p>
+      <p class="how">Описала ситуацию → претензия со ссылками на закон</p>
+      <div class="times">
+        <span class="t-was">руками ~70 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~7 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Купила технику, через две недели сломалась, в магазине отказали в возврате. Напиши претензию со ссылками на закон о защите прав потребителей.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c27" data-sphere="s4" data-w="60" data-a="6" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Договор до того, как подписала</h3>
+      <p class="sit">Подписываешь не глядя, потому что «там всё стандартное».</p>
+      <p class="how">Скопировала текст → карта рисков и что попросить изменить</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~6 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот текст договора. Найди пункты, невыгодные мне как заказчику, объясни каждый простыми словами и подскажи, что попросить изменить.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c28" data-sphere="s4" data-w="60" data-a="6" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Штраф, который можно оспорить</h3>
+      <p class="sit">Заплатила, потому что спорить бесполезно.</p>
+      <p class="how">Описала обстоятельства → жалоба и сроки подачи</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~6 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Пришёл штраф за парковку, но знак был закрыт деревом, есть фото. Составь жалобу с правильными формулировками и укажи сроки.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c29" data-sphere="s4" data-w="70" data-a="7" data-f="0.2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Отказ страховой, с которым не спорили</h3>
+      <p class="sit">Получила отказ и смирилась.</p>
+      <p class="how">Фото отказа → разбор и апелляция</p>
+      <div class="times">
+        <span class="t-was">руками ~70 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~7 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот отказ страховой. Разбери, на каком основании отказали, есть ли слабые места в аргументации, и составь апелляцию.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c30" data-sphere="s4" data-w="50" data-a="5" data-f="0.4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Заявление, которое боялась писать</h3>
+      <p class="sit">Ищешь образец и переписываешь чужие обстоятельства.</p>
+      <p class="how">Рассказала ситуацию → заявление по форме</p>
+      <div class="times">
+        <span class="t-was">руками ~50 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Нужно заявление на перерасчёт коммунальных за период, когда никто не жил в квартире. Составь по форме и отметь, какие документы приложить.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c31" data-sphere="s4" data-w="30" data-a="3" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Квитанция, в которой сумма выросла</h3>
+      <p class="sit">Смотришь на итог, вздыхаешь и платишь.</p>
+      <p class="how">Фото квитанции → из чего сложилась сумма</p>
+      <div class="times">
+        <span class="t-was">руками ~30 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот квитанция за коммунальные услуги. Разбери, из чего сложилась сумма, что изменилось с прошлого месяца и что перепроверить.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c32" data-sphere="s4" data-w="45" data-a="5" data-f="0.2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Билет, который «невозвратный»</h3>
+      <p class="sit">Прочитала слово «невозвратный» и закрыла вкладку.</p>
+      <p class="how">Описала ситуацию → обращение, которое не отпишут шаблоном</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Не смогла полететь по болезни, билет невозвратный, есть справка. Напиши обращение в авиакомпанию так, чтобы его не отписали шаблонным отказом.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s5">
+  <div class="sphere-head">
+    <h2><span class="num">05</span>Деньги и покупки</h2>
+    <span class="sphere-count" data-count="s5">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c33" data-sphere="s5" data-w="40" data-a="4" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Смета из автосервиса под лупой</h3>
+      <p class="sit">Подписываешь, потому что мастеру виднее.</p>
+      <p class="how">Фото сметы → что обязательно, что можно отложить</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот смета из автосервиса. Объясни каждую позицию простым языком, отметь, что обязательно, что можно отложить, что выглядит завышенным.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c34" data-sphere="s5" data-w="90" data-a="8" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Куда утекли деньги</h3>
+      <p class="sit">Вечер с выпиской и ощущение, что где-то потерялись двадцать тысяч.</p>
+      <p class="how">Выписка → траты по категориям</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~8 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот выписка по карте за месяц. Разложи траты по категориям, покажи три самые крупные и то, что повторяется мелкими суммами.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c35" data-sphere="s5" data-w="45" data-a="4" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Подписки, которые списываются сами</h3>
+      <p class="sit">Раз в год удивляешься, что платишь за то, чем не пользуешься.</p>
+      <p class="how">Выписка за три месяца → список регулярных списаний</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот выписка за три месяца. Найди все регулярные списания, покажи, за что они, и отметь те, что выглядят забытыми.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c36" data-sphere="s5" data-w="120" data-a="10" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Большая покупка таблицей</h3>
+      <p class="sit">Пятнадцать вкладок с обзорами и решение по отзывам.</p>
+      <p class="how">Условия → таблица сравнения и рекомендация</p>
+      <div class="times">
+        <span class="t-was">руками ~120 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Подбираю стиральную машину до 45 тысяч, узкая, семья из четырёх человек. Собери таблицу сравнения трёх моделей по цене, надёжности и отзывам.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c37" data-sphere="s5" data-w="30" data-a="3" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Настоящая цена рассрочки</h3>
+      <p class="sit">Смотришь на платёж в месяц и соглашаешься.</p>
+      <p class="how">Условия рассрочки → сколько выйдет всего</p>
+      <div class="times">
+        <span class="t-was">руками ~30 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Рассрочка на 12 месяцев по 4 900, цена товара 49 000. Посчитай переплату и объясни, где в договоре обычно прячут дополнительные платежи.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c38" data-sphere="s5" data-w="25" data-a="3" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Скидка, которую ты не искала</h3>
+      <p class="sit">Наверное, есть промокод, но искать лень.</p>
+      <p class="how">Название товара → где искать скидку и что проверить</p>
+      <div class="times">
+        <span class="t-was">руками ~25 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Собираюсь покупать вот это. Подскажи, где обычно бывают скидки на такие товары, какие способы сэкономить работают и что проверить перед оплатой.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c39" data-sphere="s5" data-w="35" data-a="3" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Объявление на Авито за минуту</h3>
+      <p class="sit">Полчаса сочиняешь текст и гадаешь с ценой.</p>
+      <p class="how">Фото вещи → объявление, цена и ответы на торг</p>
+      <div class="times">
+        <span class="t-was">руками ~35 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото детского велосипеда, б/у два года, состояние хорошее. Напиши продающее объявление, подскажи адекватную цену и заготовь ответы на торг.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c40" data-sphere="s5" data-w="90" data-a="8" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Подарки без паники за три дня</h3>
+      <p class="sit">В декабре скупаешь одинаковые наборы всем подряд.</p>
+      <p class="how">Список близких и бюджет → идеи под каждого</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~8 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот список близких с их интересами и бюджет на каждого. Предложи по три варианта подарка и отметь, что заказать заранее.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s6">
+  <div class="sphere-head">
+    <h2><span class="num">06</span>Работа по найму</h2>
+    <span class="sphere-count" data-count="s6">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c41" data-sphere="s6" data-w="35" data-a="4" data-f="3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Письмо начальнику в трёх тонах</h3>
+      <p class="sit">Сорок минут переписываешь и всё равно отправляешь неловкое.</p>
+      <p class="how">Сказала суть → три варианта тона</p>
+      <div class="times">
+        <span class="t-was">руками ~35 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Нужно сообщить руководителю, что не успеваю к пятнице и прошу перенести срок на понедельник. Дай три варианта: мягкий, нейтральный и твёрдый.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c42" data-sphere="s6" data-w="40" data-a="5" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Совещание, которое не надо конспектировать</h3>
+      <p class="sit">Строчишь в блокнот и упускаешь половину.</p>
+      <p class="how">Запись → протокол с решениями и сроками</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот расшифровка совещания. Собери протокол: решения, кто что делает и к какому сроку. Спорные моменты вынеси отдельно.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c43" data-sphere="s6" data-w="180" data-a="20" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Отчёт из выгрузки</h3>
+      <p class="sit">Полдня сводишь таблицу и полночи придумываешь выводы.</p>
+      <p class="how">Выгрузка → сводка и выводы по цифрам</p>
+      <div class="times">
+        <span class="t-was">руками ~180 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~20 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот выгрузка данных за квартал. Сделай сводку по показателям и назови три вывода, которые действительно следуют из цифр, без домыслов.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c44" data-sphere="s6" data-w="60" data-a="7" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Резюме под конкретную вакансию</h3>
+      <p class="sit">Рассылаешь одно и то же и не понимаешь, почему тишина.</p>
+      <p class="how">Резюме и вакансия → переставленные акценты</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~7 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот моё резюме и описание вакансии. Переставь акценты под эти требования, ничего не выдумывая. Покажи, что убрать, а что вынести наверх.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c45" data-sphere="s6" data-w="60" data-a="15" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Репетиция собеседования</h3>
+      <p class="sit">Волнуешься и придумываешь ответы прямо в кабинете.</p>
+      <p class="how">Описание вакансии → тренировка с разбором</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~15 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Проведи со мной тренировочное собеседование по этому описанию вакансии. Задавай вопросы по одному, жди мой ответ и разбирай его.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c46" data-sphere="s6" data-w="90" data-a="10" data-f="0.2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Разговор о повышении</h3>
+      <p class="sit">Собираешься с духом полгода и говоришь «ну я хотела спросить».</p>
+      <p class="how">Список сделанного → аргументы и сценарий разговора</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Помоги подготовиться к разговору о повышении. Вот что я сделала за год. Собери аргументы с цифрами, порядок разговора и ответ на «сейчас не время».</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c47" data-sphere="s6" data-w="25" data-a="3" data-f="3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Формула, которую стыдно спросить</h3>
+      <p class="sit">Гуглишь и открываешь форум пятилетней давности.</p>
+      <p class="how">Описала задачу словами → формула с объяснением</p>
+      <div class="times">
+        <span class="t-was">руками ~25 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">В таблице есть даты и суммы. Нужно посчитать сумму по каждому месяцу отдельно. Дай формулу и объясни, как она устроена.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c48" data-sphere="s6" data-w="150" data-a="20" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Презентация к понедельнику</h3>
+      <p class="sit">Воскресный вечер в редакторе слайдов.</p>
+      <p class="how">Тезисы → структура, тексты слайдов и что сказать</p>
+      <div class="times">
+        <span class="t-was">руками ~150 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~20 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот мои тезисы. Собери структуру презентации на 10 слайдов: что на каждом, короткий текст и что я скажу голосом.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s7">
+  <div class="sphere-head">
+    <h2><span class="num">07</span>Учёба и информация</h2>
+    <span class="sphere-count" data-count="s7">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c49" data-sphere="s7" data-w="90" data-a="5" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Конспект видео до просмотра</h3>
+      <p class="sit">Два часа на ролик и разочарование на девяностой минуте.</p>
+      <p class="how">Ссылка на видео → конспект и решение, смотреть ли</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот ссылка на видео. Сделай конспект по смыслам, отметь полезные фрагменты с таймкодами и скажи, стоит ли смотреть целиком.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c50" data-sphere="s7" data-w="60" data-a="6" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Конспект консультации, за которую заплачено</h3>
+      <p class="sit">Через месяц не помнишь ничего из того, что тебе сказали.</p>
+      <p class="how">Запись → конспект и чек-лист по дням</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~6 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот запись консультации. Сделай конспект и преврати рекомендации в чек-лист по дням: что в первую неделю, что во вторую.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c51" data-sphere="s7" data-w="40" data-a="4" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Проверка совета, который все повторяют</h3>
+      <p class="sit">Веришь эксперту, потому что он уверенно говорит.</p>
+      <p class="how">Пересказала совет → на чём он основан и где данных нет</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Часто слышу такой совет. Разбери, на чём он основан, что говорят источники и где данных недостаточно.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c52" data-sphere="s7" data-w="40" data-a="3" data-f="0.5">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Письмо на языке, которого не знаешь</h3>
+      <p class="sit">Не пишешь в отель, потому что страшно опозориться.</p>
+      <p class="how">Сказала на русском → письмо на нужном языке</p>
+      <div class="times">
+        <span class="t-was">руками ~40 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">раз в пару месяцев</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Напиши письмо в отель на английском: прошу поздний выезд и детскую кроватку. Ответ потом переведёшь мне простыми словами.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c53" data-sphere="s7" data-w="90" data-a="10" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Новая тема, к которой не подступиться</h3>
+      <p class="sit">Скачала три курса и не открыла ни одного.</p>
+      <p class="how">Цель и свободное время → план обучения по шагам</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Хочу разобраться в теме с нуля. У меня три часа в неделю и два месяца. Расспроси меня о цели и собери план обучения по шагам.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c54" data-sphere="s7" data-w="70" data-a="5" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Восемьдесят страниц, из которых нужны две</h3>
+      <p class="sit">Читаешь по диагонали и надеешься, что не пропустила важное.</p>
+      <p class="how">Файл → что здесь про тебя и на каких страницах</p>
+      <div class="times">
+        <span class="t-was">руками ~70 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот документ. Найди всё, что касается моей ситуации, укажи номера страниц и процитируй ключевые формулировки.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c55" data-sphere="s7" data-w="120" data-a="20" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Подготовка к экзамену без зубрёжки</h3>
+      <p class="sit">Перечитываешь конспект по кругу и не понимаешь, что уже знаешь.</p>
+      <p class="how">Программа → карточки и разбор ошибок</p>
+      <div class="times">
+        <span class="t-was">руками ~120 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~20 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот программа экзамена. Сделай карточки вопрос-ответ, задавай их по одной и разбирай ошибки.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c56" data-sphere="s7" data-w="25" data-a="2" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Объясни так, будто мне шестьдесят</h3>
+      <p class="sit">Читаешь инструкцию и бросаешь на третьем абзаце.</p>
+      <p class="how">Скопировала непонятное → то же по шагам</p>
+      <div class="times">
+        <span class="t-was">руками ~25 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~2 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Объясни это простыми словами, по шагам, без специальных терминов. Каждый шаг — одно действие.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s8">
+  <div class="sphere-head">
+    <h2><span class="num">08</span>Своё дело и клиенты</h2>
+    <span class="sphere-count" data-count="s8">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c57" data-sphere="s8" data-w="180" data-a="20" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Коммерческое предложение из брифа</h3>
+      <p class="sit">Полдня на каждое предложение, и половина уходит в никуда.</p>
+      <p class="how">Бриф клиента → черновик предложения</p>
+      <div class="times">
+        <span class="t-was">руками ~180 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~20 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот бриф клиента. Сделай черновик коммерческого предложения: что делаем, сроки, что входит и что не входит, цена.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c58" data-sphere="s8" data-w="30" data-a="3" data-f="3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Сообщения, которые неловко писать</h3>
+      <p class="sit">Неделю откладываешь напоминание об оплате и злишься на себя.</p>
+      <p class="how">Описала ситуацию → три варианта формулировки</p>
+      <div class="times">
+        <span class="t-was">руками ~30 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~3 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Клиент не оплатил счёт, срок прошёл неделю назад, отношения хорошие. Дай три варианта напоминания: мягкое, обычное и последнее.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c59" data-sphere="s8" data-w="240" data-a="25" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Карточка товара без подрядчиков</h3>
+      <p class="sit">День работы копирайтера и фотографа на одну карточку.</p>
+      <p class="how">Фото и характеристики → описание и тексты</p>
+      <div class="times">
+        <span class="t-was">руками ~240 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~25 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот фото товара и характеристики. Напиши описание для маркетплейса, тексты для инфографики и три варианта ответа на негативный отзыв.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c60" data-sphere="s8" data-w="90" data-a="10" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Учёт клиентов из переписок</h3>
+      <p class="sit">Всё в голове и в трёх мессенджерах.</p>
+      <p class="how">Скриншоты диалогов → таблица клиентов</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот скриншоты переписок с клиентами. Собери таблицу: имя, что заказали, на какую сумму, когда, что дальше.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c61" data-sphere="s8" data-w="60" data-a="5" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Задания, которые рождаются на уроке</h3>
+      <p class="sit">Готовишь часами и всё равно приносишь не то.</p>
+      <p class="how">Тема, где застрял ученик → задачи с решениями</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Ученик 7 класса застрял на теме процентов. Собери пять задач по нарастающей сложности с решениями, прямо сейчас.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c62" data-sphere="s8" data-w="45" data-a="5" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Ответ на отзыв, от которого трясёт</h3>
+      <p class="sit">Пишешь сгоряча или не отвечаешь вовсе.</p>
+      <p class="how">Текст отзыва → три спокойных варианта ответа</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~5 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот негативный отзыв. Дай три варианта ответа, где я не оправдываюсь, но и не спорю. Публичный тон, спокойный.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c63" data-sphere="s8" data-w="90" data-a="10" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Цена, которую наконец можешь объяснить</h3>
+      <p class="sit">Называешь цифру и внутренне съёживаешься.</p>
+      <p class="how">Своё время и цены рынка → расчёт и формулировка</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот сколько времени уходит на услугу и вот цены по рынку. Помоги посчитать адекватную цену и сформулировать, как объяснить её клиенту.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c64" data-sphere="s8" data-w="60" data-a="8" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Счета и акты без опечаток в ИНН</h3>
+      <p class="sit">Вбиваешь реквизиты руками в каждый документ.</p>
+      <p class="how">Реквизиты и список услуг → готовые документы</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~8 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот реквизиты и список услуг за месяц. Собери счёт и акт по каждому клиенту, реквизиты подставь одинаково во все.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section><section class="sphere" id="s9">
+  <div class="sphere-head">
+    <h2><span class="num">09</span>Контент и видимость</h2>
+    <span class="sphere-count" data-count="s9">0 из 8</span>
+  </div>
+  <div class="cards"><div class="card" data-id="c65" data-sphere="s9" data-w="60" data-a="7" data-f="8">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Пост из голосового</h3>
+      <p class="sit">Час над пустым экраном и мысль «да ну его».</p>
+      <p class="how">Наговорила на ходу → текст своим голосом</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~7 мин</span>
+        <span class="t-freq">почти каждый день</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот расшифровка моего голосового. Сделай из этого пост: сохрани мою интонацию и порядок мыслей, не приглаживай.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c66" data-sphere="s9" data-w="90" data-a="8" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Дизайн, который не заказывала</h3>
+      <p class="sit">Ждёшь дизайнера или показываешь стыдное.</p>
+      <p class="how">Описала словами → готовая картинка</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~8 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Опиши, как должна выглядеть обложка для поста про планирование недели: тёплая, спокойная, без стоковых улыбок. Предложи три варианта композиции.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c67" data-sphere="s9" data-w="120" data-a="12" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Короткие ролики без монтажёра</h3>
+      <p class="sit">Вечер в видеоредакторе или деньги монтажёру.</p>
+      <p class="how">Длинное видео → нарезка с хуками</p>
+      <div class="times">
+        <span class="t-was">руками ~120 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~12 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот расшифровка длинного видео. Найди 4 самодостаточных фрагмента на 40–60 секунд, для каждого дай хук на первые три секунды.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c68" data-sphere="s9" data-w="45" data-a="4" data-f="2">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Таймкоды и описание к видео</h3>
+      <p class="sit">Пересматриваешь запись с блокнотом.</p>
+      <p class="how">Расшифровка → таймкоды и описание</p>
+      <div class="times">
+        <span class="t-was">руками ~45 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~4 мин</span>
+        <span class="t-freq">пару раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот расшифровка. Собери таймкоды по темам и напиши описание к видео на 500 знаков.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c69" data-sphere="s9" data-w="60" data-a="10" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Ответы в комментариях и директе</h3>
+      <p class="sit">Копишь непрочитанные и отвечаешь всем сразу раз в неделю.</p>
+      <p class="how">Типовые вопросы → заготовки в твоём тоне</p>
+      <div class="times">
+        <span class="t-was">руками ~60 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот десять типовых вопросов, которые мне пишут. Сделай заготовки ответов в моём тоне: тепло, коротко, без официоза.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c70" data-sphere="s9" data-w="90" data-a="10" data-f="1">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Контент-план из своих же цифр</h3>
+      <p class="sit">Придумываешь темы в воскресенье вечером.</p>
+      <p class="how">Темы и охваты → что заходит и 12 новых тем</p>
+      <div class="times">
+        <span class="t-was">руками ~90 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~10 мин</span>
+        <span class="t-freq">раз в месяц</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот темы моих постов за три месяца и охваты. Найди, что заходит лучше, и предложи 12 тем на месяц вперёд.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c71" data-sphere="s9" data-w="50" data-a="6" data-f="4">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Ролик из поста, который уже написан</h3>
+      <p class="sit">Пишешь заново, потому что «для видео нужен другой текст».</p>
+      <p class="how">Готовый пост → сценарий вертикального ролика</p>
+      <div class="times">
+        <span class="t-was">руками ~50 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~6 мин</span>
+        <span class="t-freq">раз в неделю</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Вот мой пост. Разложи его в сценарий вертикального ролика: что говорю, что в кадре, что выносим текстом на экран.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div><div class="card" data-id="c72" data-sphere="s9" data-w="240" data-a="30" data-f="0.3">
+  <div class="card-top">
+    <button class="tick" aria-label="Отметить" data-act="tick"></button>
+    <div class="card-body" data-act="open">
+      <h3>Рабочая страница вместо файла</h3>
+      <p class="sit">Отдаёшь людям файл, который скачивают и не открывают.</p>
+      <p class="how">Описала блоки → интерактивная страница</p>
+      <div class="times">
+        <span class="t-was">руками ~240 мин</span>
+        <span class="t-arr">→</span>
+        <span class="t-ai">с нейросетью ~30 мин</span>
+        <span class="t-freq">несколько раз в год</span>
+      </div>
+    </div>
+    <span class="chev" data-act="open">▾</span>
+  </div>
+  <div class="prompt">
+    <p class="prompt-label">Что скопировать в чат</p>
+    <div class="prompt-text">Опиши, какой должна быть интерактивная страница-воркбук по теме планирования недели: какие блоки, где галочки, где поля для ответов.</div>
+    <button class="copy" data-act="copy">Скопировать запрос</button>
+  </div>
+</div></div>
+</section>
+
+  <div class="limits">
+    <p class="eyebrow">Честно про границы</p>
+    <h2 style="margin-top:8px">Чего нейросеть за тебя не сделает</h2>
+    <p style="margin-top:10px">Она не добавляет головы — она снимает ручную работу. Там, где ты понимаешь, чего хочешь, помощник ускорит тебя в разы. Там, где в голове каша, он выдаст ту же кашу, только гладко и на трёх страницах.</p>
+    <h3>Она не знает — она предполагает</h3>
+    <p>Внутри нет справочника, есть очень хорошее чутьё на то, какое слово идёт следующим. Поэтому ошибается она с тем же уверенным видом, с каким говорит правду. Цифры, даты, ссылки и номера законов проверяй всегда.</p>
+    <h3>Она не помнит вчерашний разговор</h3>
+    <p>Новый чат — чистый лист. Помнит ровно то, что ты в него положила.</p>
+    <h3>Она не отвечает за результат</h3>
+    <p>Она готовит тебя к разговору с врачом, юристом, мастером — решение и последствия остаются твоими. Специалисты никуда не делись, просто теперь ты приходишь к ним с вопросами, а не с пустым листом.</p>
+    <h3>Почему «мне выдало ерунду»</h3>
+    <p>Почти всегда потому, что вопрос был общий. Нейросеть — как толковый новый сотрудник в первый день: способный, быстрый и ничего не знающий про твою жизнь. Расскажи, кто ты, для кого задача, что уже пробовала и как выглядит хороший результат — ответ изменится до неузнаваемости.</p>
+    <div class="warn"><strong>Что не отправляем в чат:</strong> паспортные данные, банковские реквизиты, номера полисов и чужие персональные данные. На фото закрываем, в тексте пишем «данные обезличены».</div>
+  </div>
+
+  <section class="sphere" id="result" style="margin-bottom:20px">
+    <div class="final">
+      <p class="eyebrow">Твой результат</p>
+      <h2 style="margin-top:8px" id="resTitle">Отметь хотя бы одно дело</h2>
+
+      <div class="scale">
+        <div class="sc sc-was"><b id="wasH">0 ч</b><span>уходит сейчас<br>в месяц</span></div>
+        <div class="sc-arrow">→</div>
+        <div class="sc sc-ai"><b id="aiH">0 ч</b><span>останется<br>с помощником</span></div>
+      </div>
+
+      <div class="gain"><span class="gain-num" id="gainH">0</span><span class="gain-unit">часов в месяц освобождается</span></div>
+      <p class="gain-cap muted" id="gainCap">Это примерно 0 свободных вечеров</p>
+
+      <div class="picked" id="picked"><p class="muted">Пока ничего не отмечено. Пройдись по списку выше — сюда соберётся твой личный перечень.</p></div>
+
+      <div class="first" id="firstBox" hidden>
+        <p class="eyebrow">С чего начать</p>
+        <p style="margin-top:6px">Самое выгодное из отмеченного — <strong id="firstName"></strong>. Оно вернёт тебе <strong id="firstGain"></strong> в месяц. Начни с него сегодня.</p>
+      </div>
+
+      <div class="tools">
+        <button data-act="copyall">Скопировать список</button>
+        <button data-act="print">Распечатать</button>
+        <button data-act="reset">Начать заново</button>
+      </div>
+      <p class="muted" style="margin-top:14px;font-size:14px">Цифры — усреднённые оценки, а не замер твоей жизни. У кого-то выйдет меньше, у кого-то больше. Смысл не в точности, а в масштабе.</p>
+    </div>
+
+    <div class="cta">
+      <h2>Отмеченное само себя не сделает</h2>
+      <p class="lede" style="margin-top:10px">Ты увидела, где помощник пригодится именно тебе. Это карта, а не дорога. Дорогу проходят вместе: три недели, каждое утро по семь минут, рядом такие же.</p>
+      <p style="margin-top:12px"><strong>15–17 сентября — три дня открыты для всех.</strong><br>Заходи, попробуй, реши.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://t.me/marafonPROeffectivnost" target="_blank" rel="noopener">Зайти в Telegram-канал</a>
+        <a class="btn btn-ghost" href="https://max.ru/join/msBtFRO0R_6BHULxSlZXH1AqgA6Rx6CYf7XB4s3imDU" target="_blank" rel="noopener">Канал в MAX</a>
+      </div>
+      <p class="muted" style="margin-top:14px;font-size:15px">Марафон «Успеть всё» — 15 сентября по 11 октября.<br>Настя и Женя, две многодетные мамы.</p>
+    </div>
+  </section>
+
+  <footer>Тест · марафон «Успеть всё», 2026</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var KEY='uspetvse-test-v1', state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(err){}
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var toast=document.getElementById('toast'), tt;
+  function say(m){ toast.textContent=m; toast.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove('show');},1600); }
+  function h(min){ var v=min/60; return (v<10? Math.round(v*10)/10 : Math.round(v)); }
+  function plural(n,a,b,c){ var m=n%100; if(m>=11&&m<=14) return c; var k=n%10;
+    if(k===1) return a; if(k>=2&&k<=4) return b; return c; }
+  function render(){
+    var n=0, per={}, wasM=0, aiM=0, best=null, bestGain=0;
+    cards.forEach(function(c){
+      var on=!!state[c.dataset.id]; c.classList.toggle('on',on);
+      if(!on) return;
+      n++; per[c.dataset.sphere]=(per[c.dataset.sphere]||0)+1;
+      var w=+c.dataset.w, a=+c.dataset.a, f=+c.dataset.f;
+      wasM+=w*f; aiM+=a*f;
+      var g=(w-a)*f; if(g>bestGain){ bestGain=g; best=c; }
+    });
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var id=el.dataset.count, t=document.querySelectorAll('.card[data-sphere="'+id+'"]').length;
+      el.textContent=(per[id]||0)+' из '+t;
+    });
+    var gain=wasM-aiM, gh=h(gain);
+    document.getElementById('liveHours').textContent=gh+' ч';
+    document.getElementById('wasH').textContent=h(wasM)+' ч';
+    document.getElementById('aiH').textContent=h(aiM)+' ч';
+    document.getElementById('gainH').textContent=gh;
+    document.getElementById('resTitle').textContent = n? ('Ты отметила '+n+' '+plural(n,'дело','дела','дел')) : 'Отметь хотя бы одно дело';
+    var ev=Math.round(gain/120);
+    document.getElementById('gainCap').textContent = n? ('Это примерно '+ev+' свободн'+(ev===1?'ый вечер':(ev>=2&&ev<=4?'их вечера':'ых вечеров'))+' в месяц') : 'Отметь дела выше — здесь появится результат';
+    var fb=document.getElementById('firstBox');
+    if(best){ fb.hidden=false;
+      document.getElementById('firstName').textContent='«'+best.querySelector('h3').textContent+'»';
+      var bg=Math.round(bestGain); 
+      document.getElementById('firstGain').textContent = bg>=60? (h(bestGain)+' ч') : (bg+' мин');
+    } else fb.hidden=true;
+    var box=document.getElementById('picked');
+    if(!n) box.innerHTML='<p class="muted">Пока ничего не отмечено. Пройдись по списку выше — сюда соберётся твой личный перечень.</p>';
+    else { var s='<ul>'; cards.forEach(function(c){ if(state[c.dataset.id]) s+='<li>'+c.querySelector('h3').textContent+'</li>'; }); box.innerHTML=s+'</ul>'; }
+    try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(err){}
+  }
+  document.addEventListener('click',function(ev){
+    var t=ev.target.closest('[data-act]'); if(!t) return;
+    var act=t.dataset.act, card=t.closest('.card');
+    if(act==='tick'){ state[card.dataset.id]=!state[card.dataset.id]; render(); }
+    else if(act==='open'){ card.classList.toggle('open'); }
+    else if(act==='copy'){ navigator.clipboard.writeText(card.querySelector('.prompt-text').textContent)
+        .then(function(){say('Запрос скопирован');},function(){say('Не удалось скопировать');}); }
+    else if(act==='copyall'){
+      var out=[]; cards.forEach(function(c){ if(state[c.dataset.id]) out.push('• '+c.querySelector('h3').textContent); });
+      if(!out.length){ say('Сначала отметь хоть одно дело'); return; }
+      navigator.clipboard.writeText('Что я отдаю нейросети:\n'+out.join('\n')).then(function(){say('Список скопирован');});
+    }
+    else if(act==='print'){ window.print(); }
+    else if(act==='reset'){ state={}; render(); say('Отметки сброшены'); }
+  });
+  render();
+})();
+</script>
+</body>
+</html>
